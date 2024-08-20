@@ -5,3 +5,12 @@ inputフォルダにwavファイルを入れるとouputフォルダにtxtとし�
 スペースで区切られた際には改行している
 
 https://github.com/MizoTake/MojiOkoshi/releases
+
+```
+pip install -r requirements.txt
+pip install pyinstaller
+```
+
+```
+chmod +x build.sh
+```
