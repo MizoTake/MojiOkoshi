@@ -1,0 +1,8 @@
+# PyInstaller
+build/
+dist/
+spec/
+
+# other
+input/*.wav
+output/*.txt
