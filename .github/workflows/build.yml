@@ -1,3 +1,5 @@
+name: build
+
 on:
   push:
     branches: ["master"]
@@ -20,6 +22,9 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
+          cache: 'pip'
+          cache-dependency-path: |
+            **/requirements*.txt
 
       - name: Install Dependencies
         run: |
