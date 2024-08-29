@@ -66,12 +66,12 @@ def format_paragraphs_with_timestamps(paragraphs):
 
 def transcribe_and_format(input_folder, output_folder):
     for file_name in os.listdir(input_folder):
-        if file_name.endswith('.wav') or file_name.endswith('.mp4'):
+        if file_name.endswith('.wav') or file_name.endswith('.mp3'):
             input_path = os.path.join(input_folder, file_name)
             output_path = output_folder
 
             # Convert to WAV if needed
-            if file_name.endswith('.mp4'):
+            if file_name.endswith('.mp3'):
                 input_path = convert_to_wav(input_path, output_folder)
 
             # Load the audio file
