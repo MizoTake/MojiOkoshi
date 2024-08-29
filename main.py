@@ -92,7 +92,6 @@ def transcribe_and_format(input_folder, output_folder):
             print(f"Transcription saved to {output_file}")
 
 
-# Example usage:
 input_folder = 'input'  # 入力音声ファイルが保存されているフォルダ
 output_folder = 'output'  # 文字起こし結果が保存されるフォルダ
 
