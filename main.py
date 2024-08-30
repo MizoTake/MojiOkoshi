@@ -27,7 +27,7 @@ def transcribe_audio_segment(audio_segment, recognizer):
         print(f"Could not request results; {e}")
         return ""
 
-def split_audio_to_paragraphs(audio, max_length=30, step=5000, overlap=1000):
+def split_audio_to_paragraphs(audio, max_length=30, step=30000, overlap=1000):
     """音声を分割して段落ごとに文字起こしします。"""
     recognizer = sr.Recognizer()
     start = 0
