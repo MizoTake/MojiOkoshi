@@ -4,5 +4,7 @@ dist/
 spec/
 
 # other
+input/*.mp3
 input/*.wav
 output/*.txt
+output/tmp/*

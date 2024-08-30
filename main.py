@@ -1,13 +1,19 @@
 import speech_recognition as sr
 from pydub import AudioSegment
 import os
-import ffmpeg
 
-def convert_to_wav(file_path, output_path):
-    """音声ファイルをWAV形式に変換します。"""
-    output_file = os.path.join(output_path, os.path.basename(file_path).rsplit('.', 1)[0] + '.wav')
+
+def convert_to_wav(file_path, output_folder):
+    """音声ファイルをWAV形式に変換し、tmpフォルダに保存します。"""
+    tmp_folder = os.path.join(output_folder, 'tmp')
+    if not os.path.exists(tmp_folder):
+        os.makedirs(tmp_folder)
+
+    output_file = os.path.join(tmp_folder, os.path.basename(file_path).rsplit('.', 1)[0] + '.wav')
     if not os.path.exists(output_file):
-        ffmpeg.input(file_path).output(output_file).run(quiet=True)
+        audio = AudioSegment.from_mp3(file_path)
+        audio.export(output_file, format="wav")
+
     return output_file
 
 def transcribe_audio_segment(audio_segment, recognizer):
@@ -65,7 +71,6 @@ def transcribe_and_format(input_folder, output_folder):
     for file_name in os.listdir(input_folder):
         if file_name.endswith('.wav') or file_name.endswith('.mp3'):
             input_path = os.path.join(input_folder, file_name)
-            output_path = output_folder
 
             # Convert to WAV if needed
             if file_name.endswith('.mp3'):
